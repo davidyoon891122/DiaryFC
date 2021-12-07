@@ -247,6 +247,104 @@
             </objects>
             <point key="canvasLocation" x="2918" y="851"/>
         </scene>
+        <!--Diary Detail View Controller-->
+        <scene sceneID="pI1-qP-J5l">
+            <objects>
+                <viewController id="g47-za-djM" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BbF-7C-KCy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yTx-2D-Au7">
+                                <rect key="frame" x="24" y="68" width="366" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuy-XX-vK0">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkF-J0-1b4">
+                                        <rect key="frame" x="0.0" y="32.5" width="366" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWo-nY-uCd">
+                                <rect key="frame" x="24" y="145" width="366" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VpS-IW-poa">
+                                <rect key="frame" x="20" y="177.5" width="374" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="niv-Ec-G4Q"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-fJ-QGX">
+                                <rect key="frame" x="24" y="351.5" width="366" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXH-Zx-CJa">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW9-iN-ekx">
+                                        <rect key="frame" x="0.0" y="32.5" width="366" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-Vz-fqz">
+                                <rect key="frame" x="152" y="428.5" width="110" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeS-p9-Xg5">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="수정"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gub-ey-xi3">
+                                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="삭제">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hKW-WV-1tJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bWk-fJ-QGX" firstAttribute="top" secondItem="VpS-IW-poa" secondAttribute="bottom" constant="24" id="ERb-dj-moG"/>
+                            <constraint firstItem="ZWo-nY-uCd" firstAttribute="leading" secondItem="hKW-WV-1tJ" secondAttribute="leading" constant="24" id="G0x-Nu-GiY"/>
+                            <constraint firstItem="VpS-IW-poa" firstAttribute="top" secondItem="ZWo-nY-uCd" secondAttribute="bottom" constant="12" id="GDN-ve-xpb"/>
+                            <constraint firstItem="bWk-fJ-QGX" firstAttribute="leading" secondItem="hKW-WV-1tJ" secondAttribute="leading" constant="24" id="GDT-yM-R5q"/>
+                            <constraint firstItem="hKW-WV-1tJ" firstAttribute="trailing" secondItem="VpS-IW-poa" secondAttribute="trailing" constant="20" id="HJM-ho-cOe"/>
+                            <constraint firstItem="VpS-IW-poa" firstAttribute="leading" secondItem="hKW-WV-1tJ" secondAttribute="leading" constant="20" id="QI8-jn-kui"/>
+                            <constraint firstItem="Psm-Vz-fqz" firstAttribute="top" secondItem="bWk-fJ-QGX" secondAttribute="bottom" constant="24" id="Qoe-nX-7ZU"/>
+                            <constraint firstItem="ZWo-nY-uCd" firstAttribute="top" secondItem="yTx-2D-Au7" secondAttribute="bottom" constant="24" id="Rjm-Xp-iiW"/>
+                            <constraint firstItem="yTx-2D-Au7" firstAttribute="leading" secondItem="hKW-WV-1tJ" secondAttribute="leading" constant="24" id="W3J-u0-FUW"/>
+                            <constraint firstItem="hKW-WV-1tJ" firstAttribute="trailing" secondItem="ZWo-nY-uCd" secondAttribute="trailing" constant="24" id="Wgw-Tw-2lb"/>
+                            <constraint firstItem="Psm-Vz-fqz" firstAttribute="centerX" secondItem="bWk-fJ-QGX" secondAttribute="centerX" id="ZTx-mp-YhO"/>
+                            <constraint firstItem="yTx-2D-Au7" firstAttribute="top" secondItem="hKW-WV-1tJ" secondAttribute="top" constant="24" id="e28-Ev-HMQ"/>
+                            <constraint firstItem="hKW-WV-1tJ" firstAttribute="trailing" secondItem="bWk-fJ-QGX" secondAttribute="trailing" constant="24" id="gVm-vy-M8M"/>
+                            <constraint firstItem="hKW-WV-1tJ" firstAttribute="trailing" secondItem="yTx-2D-Au7" secondAttribute="trailing" constant="24" id="t1r-cB-kuF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEs-8j-sCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3600.0000000000005" y="843.75"/>
+        </scene>
         <!--일기장-->
         <scene sceneID="lHM-bp-jVF">
             <objects>
@@ -293,6 +391,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
