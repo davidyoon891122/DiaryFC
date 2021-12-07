@@ -16,6 +16,7 @@
 		ADFB52C6275F74ED00D854E3 /* DiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFB52C5275F74ED00D854E3 /* DiaryCollectionViewCell.swift */; };
 		ADFB52C8275F753B00D854E3 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFB52C7275F753B00D854E3 /* StarViewController.swift */; };
 		ADFB52CA275F75F900D854E3 /* StarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFB52C9275F75F900D854E3 /* StarCollectionViewCell.swift */; };
+		ADFB52CC275F779300D854E3 /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFB52CB275F779300D854E3 /* WriteDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		ADFB52C5275F74ED00D854E3 /* DiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADFB52C7275F753B00D854E3 /* StarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		ADFB52C9275F75F900D854E3 /* StarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADFB52CB275F779300D854E3 /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				ADFB52C5275F74ED00D854E3 /* DiaryCollectionViewCell.swift */,
 				ADFB52C7275F753B00D854E3 /* StarViewController.swift */,
 				ADFB52C9275F75F900D854E3 /* StarCollectionViewCell.swift */,
+				ADFB52CB275F779300D854E3 /* WriteDiaryViewController.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADFB52C6275F74ED00D854E3 /* DiaryCollectionViewCell.swift in Sources */,
+				ADFB52CC275F779300D854E3 /* WriteDiaryViewController.swift in Sources */,
 				ADFB52B6275F727D00D854E3 /* ViewController.swift in Sources */,
 				ADFB52CA275F75F900D854E3 /* StarCollectionViewCell.swift in Sources */,
 				ADFB52B2275F727D00D854E3 /* AppDelegate.swift in Sources */,
