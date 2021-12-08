@@ -193,7 +193,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uje-Sn-K4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2142" y="855"/>
+            <point key="canvasLocation" x="2142" y="925"/>
         </scene>
         <!--Star View Controller-->
         <scene sceneID="itH-y5-ICM">
@@ -245,6 +245,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="80"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="jf9-3g-uDG" id="kU9-Jq-yFl"/>
+                                            <outlet property="titleLabel" destination="Dcm-iO-7e3" id="mfe-D8-EeL"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -259,6 +263,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7Km-Z1-cxo"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ldm-HC-Iam" id="11H-Bn-YX4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsM-yG-448" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
