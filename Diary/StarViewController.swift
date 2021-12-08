@@ -48,11 +48,12 @@ class StarViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         guard let data = userDefaults.object(forKey: "diaryList") as? [[String: Any]] else { return }
         self.diaryList = data.compactMap{
+            guard let uuidString = $0["uuidString"] as? String else { return nil }
             guard let title = $0["title"] as? String else { return nil }
             guard let contents = $0["contents"] as? String else { return nil }
             guard let date = $0["date"] as? Date else { return nil }
             guard let isStar = $0["isStar"] as? Bool else { return nil }
-            return Diary(title: title, contents: contents, date: date, isStar: isStar)
+            return Diary(uuidString: uuidString,title: title, contents: contents, date: date, isStar: isStar)
         }.filter({
             $0.isStar == true
         }).sorted(by: {
@@ -72,10 +73,10 @@ class StarViewController: UIViewController {
         guard let diary = notification.object as? Diary else {
             return
         }
-        guard let row = notification.userInfo?["indexPath.row"] as? Int else {
+        guard let index = self.diaryList.firstIndex(where: { $0.uuidString == diary.uuidString}) else {
             return
         }
-        self.diaryList[row] = diary
+        self.diaryList[index] = diary
         self.diaryList = self.diaryList.sorted(by: {
             $0.date.compare($1.date) == .orderedDescending
         })
@@ -89,7 +90,7 @@ class StarViewController: UIViewController {
         guard let isStar = starDiary["isStar"] as? Bool else {
             return
         }
-        guard let indexPath = starDiary["indexPath"] as? IndexPath else {
+        guard let uuidString = starDiary["uuidString"] as? String else {
             return
         }
         guard let diary = starDiary["diary"] as? Diary else {
@@ -102,17 +103,23 @@ class StarViewController: UIViewController {
             })
             self.collectionView.reloadData()
         } else {
-            self.diaryList.remove(at: indexPath.row)
-            self.collectionView.deleteItems(at: [indexPath])
+            guard let index = self.diaryList.firstIndex(where: { $0.uuidString == uuidString}) else {
+                return
+            }
+            self.diaryList.remove(at: index)
+            self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
         }
     }
     
     @objc func deleteDiaryNotification(_ notification: Notification) {
-        guard let indexPath = notification.object as? IndexPath else {
+        guard let uuidString = notification.object as? String else {
             return
         }
-        self.diaryList.remove(at: indexPath.row)
-        self.collectionView.deleteItems(at: [indexPath])
+        guard let index = self.diaryList.firstIndex(where: { $0.uuidString == uuidString}) else {
+            return
+        }
+        self.diaryList.remove(at: index)
+        self.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
     }
     
     
