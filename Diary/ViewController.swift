@@ -23,9 +23,27 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         self.configureCollectionView()
         self.loadDiaryList()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(editDiaryNotification(_:)),
+            name: NSNotification.Name("editDiary"),
+            object: nil)
         
     }
 
+    @objc func editDiaryNotification(_ notification: Notification) {
+        guard let diary = notification.object as? Diary else {
+            return
+        }
+        guard let row = notification.userInfo?["indexPath.row"] as? Int else {
+            return
+        }
+        self.diaryList[row] = diary
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
+        self.collectionView.reloadData()
+    }
     
     private func configureCollectionView() {
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout()

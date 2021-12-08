@@ -11,6 +11,11 @@ protocol WriteDiaryViewDelegate: AnyObject {
     func didSelectRegister(diary: Diary)
 }
 
+enum DiaryEditorMode {
+    case new
+    case edit(IndexPath, Diary)
+}
+
 
 class WriteDiaryViewController: UIViewController {
 
@@ -22,13 +27,28 @@ class WriteDiaryViewController: UIViewController {
     private let datePicker = UIDatePicker()
     private var diaryDate: Date?
     weak var delegate: WriteDiaryViewDelegate?
+    var diaryEditorMode: DiaryEditorMode = .new
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureContentsTextView()
         self.configureDatePicker()
         self.configureInputField()
+        self.configureEditMode()
         self.confirmButton.isEnabled = false
+    }
+    
+    private func configureEditMode() {
+        switch self.diaryEditorMode {
+        case let .edit(_, diary):
+            self.titleTextField.text = diary.title
+            self.contentTextView.text = diary.contents
+            self.dateTextField.text = self.dateToString(date: diary.date)
+            self.diaryDate = diary.date
+            self.confirmButton.title = "수정"
+        default:
+            break
+        }
     }
     
     private func configureContentsTextView() {
@@ -58,7 +78,20 @@ class WriteDiaryViewController: UIViewController {
         guard let contents = self.contentTextView.text else { return }
         guard let date = self.diaryDate else { return }
         let diary = Diary(title: title, contents: contents, date: date, isStar: false)
-        self.delegate?.didSelectRegister(diary: diary)
+        
+        switch self.diaryEditorMode {
+        case .new:
+            self.delegate?.didSelectRegister(diary: diary)
+        case let .edit(indexPath, _):
+            NotificationCenter.default.post(name: NSNotification.Name("editDiary"),
+                                            object: diary,
+                                            userInfo: [
+                                                "indexPath.row": indexPath.row
+                                            ])
+            
+        }
+        
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -87,6 +120,13 @@ class WriteDiaryViewController: UIViewController {
     private func validateInputField() {
         self.confirmButton.isEnabled = !(self.titleTextField.text?.isEmpty ?? true) && !(self.dateTextField.text?.isEmpty ?? true) && !self.contentTextView.text.isEmpty
         
+    }
+    
+    private func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yy년 mm월 dd일(EEEEE)"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.string(from: date)
     }
 
 }
